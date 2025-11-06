@@ -16,8 +16,8 @@ public class InventarioTipoEQQ {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int d, k, L, le, TCU;
-        float to, y, h, n;
+        int d, k, L, TCU;
+        float to, y, h, n, le;
 
         System.out.print("¿Cual es el costo por pedido?");
         k = sc.nextInt();
@@ -41,7 +41,13 @@ public class InventarioTipoEQQ {
         System.out.println("El numero de ciclos de pedido es de: " + n + " ciclos");
 
         // punto de reorden
-        le= L-(n*to)
+        le= L-(n*to);
+        System.out.println("El punto de reorden es de: " + le + " unidades");
+        // Costo total de inventario
+        TCU = (int) ((h * y / 2) + (k * (d / y)));
+        System.out.println("El costo total de inventario es de: $" + TCU);
+        sc.close();
+        
 
 
     }
