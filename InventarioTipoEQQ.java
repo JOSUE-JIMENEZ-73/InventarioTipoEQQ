@@ -16,8 +16,8 @@ public class InventarioTipoEQQ {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int d, k, L, TCU;
-        float to, y, h, n, le;
+        float d, k, L;
+        float to, y, h, n, le, TCU;
 
         System.out.print("¿Cual es el costo por pedido?");
         k = sc.nextInt();
@@ -30,22 +30,24 @@ public class InventarioTipoEQQ {
 
         // Formula para calcular la cantidad optima de pedido
         y = (float) Math.sqrt((2 * k * d) / h);
-        System.out.println("La cantidad optima de pedido es de: " + y + " unidades");
+        System.out.println("y: "+y);
 
         // tiempo de ciclo entre pedidos
         to = y / d;
-        System.out.println("El tiempo entre pedidos es de: " + to + " dias");
+        System.out.println("to: "+to);
 
         // numero de ciclos de pedido
         n = L /  to;
-        System.out.println("El numero de ciclos de pedido es de: " + n + " ciclos");
-
+        System.out.println("n: " + n );
+        
         // punto de reorden
-        le= L-(n*to);
-        System.out.println("El punto de reorden es de: " + le + " unidades");
+        le=(float) L - (n*to);
+        System.out.println("le: "+ le);
+
+        System.out.println("El punto de reorden: " + (le*d));
         // Costo total de inventario
         TCU = (int) ((h * y / 2) + (k * (d / y)));
-        System.out.println("El costo total de inventario es de: $" + TCU);
+        System.out.println("TCU: " + TCU);
         sc.close();
         
 
