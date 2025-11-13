@@ -31,31 +31,29 @@ public class InventarioTipoEQQ {
         // Formula para calcular la cantidad optima de pedido
         y = (float) Math.sqrt((2 * k * d) / h);
         y = (int) (y * 1000.0f) / 1000.0f;
-        System.out.println("y: "+y);
+        System.out.println("La cantidad optima del pedido es : " + y);
 
         // tiempo de ciclo entre pedidos
         to = y / d;
         to = (int) (to * 100.0f) / 100.0f;
-        System.out.println("to: "+to);
+        System.out.println("Tiempo entre pedido: " + to);
 
         // numero de ciclos de pedido
-        n = L /  to;
+        n = L / to;
         int n_truncado = (int) n;
-        System.out.println("n: " + n_truncado );
-        
+        System.out.println("La cantidad de ciclos de pedidos: " + n_truncado);
+
         // punto de reorden
-        le=(float) L - (n_truncado*to);
+        le = (float) L - (n_truncado * to);
         le = Math.round(le * 1000.0f) / 1000.0f;
-        System.out.println("le: "+ le);
+        System.out.println("Punto de reorden de: " + le);
 
-        System.out.println("El punto de reorden: " + ((int) (le*d)));
+        System.out.println("El punto de reorden: " + ((int) (le * d)));
         // Costo total de inventario
-        TCU =  ((h * y / 2) + (k * (d / y)));
+        TCU = ((h * y / 2) + (k * (d / y)));
         TCU = Math.round(TCU * 1000.0f) / 1000.0f;
-        System.out.println("TCU: " + TCU);
+        System.out.println("Costo total de inventario: " + TCU);
         sc.close();
-        
-
 
     }
 }
