@@ -74,8 +74,18 @@ public class InventarioTipoEQQ {
                     float p= sc.nextFloat();
                     System.out.println("Cuantos rangos de precio tiene?");
                     int rangos= sc.nextInt();
+
+                    float[] costosUnitarios= new float[rangos];
+                    float[] costosAlcacenamiento= new float[rangos];
+                    float[] cantidadesOptimas= new float[rangos];
+                    float[] CC= new float[rangos];
+                    float[] CO= new float[rangos];
+                    float[] CM= new float[rangos];
+                    float[] CTU= new float[rangos];
+
+
                     
-                
+
                 }
                     break;
                 default:
