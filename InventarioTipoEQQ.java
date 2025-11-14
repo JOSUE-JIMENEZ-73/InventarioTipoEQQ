@@ -17,7 +17,7 @@ public class InventarioTipoEQQ {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         float d, k, L;
-        float to, y, h, n, le, TCU;
+        float to, y, h, n, le, TCU; 
         int opcion;
 
         do {
@@ -56,8 +56,6 @@ public class InventarioTipoEQQ {
                     // punto de reorden
                     le = (float) L - (n_truncado * to);
                     le = Math.round(le * 1000.0f) / 1000.0f;
-                    System.out.println("Punto de reorden de: " + le);
-
                     System.out.println("El punto de reorden: " + ((int) (le * d)));
                     // Costo total de inventario
                     TCU = ((h * y / 2) + (k * (d / y)));
@@ -140,10 +138,7 @@ public class InventarioTipoEQQ {
                     // Punto de reorden
                     le = (float) L - (n_truncado * to);
                     le = Math.round(le * 1000.0f) / 1000.0f;
-                    System.out.println("tiempo restante: " + le + " dias");
-
-                    int puntoReorden = (int) (le * d);
-                    System.out.println("Punto de reorden: " + puntoReorden + " unidades");
+                    System.out.println("Punto de reorden: " +  (int) (le * d) + " unidades");
 
                     // TCU usando la formula tradicional
                     TCU = ((h * y / 2) + (k * (d / y)));
