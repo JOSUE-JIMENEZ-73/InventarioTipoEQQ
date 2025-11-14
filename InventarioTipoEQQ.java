@@ -18,6 +18,29 @@ public class InventarioTipoEQQ {
         Scanner sc = new Scanner(System.in);
         float d, k, L;
         float to, y, h, n, le, TCU;
+        int opcion;
+
+        do {
+
+            System.out.println("Seleccione el tipo de inventario: ");
+            System.out.println("1. Inventario sin descuento ");
+            System.out.println("2. Inventario con descuento ");
+            System.out.println("3. Salir ");
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1: {
+
+                }
+                    break;
+                case 2: {
+
+                }
+                    break;
+                default:
+                    System.out.println("Opcion no valida. Intente de nuevo.");
+                    break;
+            }
+        } while (opcion != 3);
 
         System.out.print("¿Cual es el costo por pedido?");
         k = sc.nextInt();
