@@ -116,6 +116,14 @@ public class InventarioTipoEQQ {
                         }
                     }
 
+                    //mostrar resultados
+                    System.out.println("La mejor opcion es el rango " + (mejorOpcion + 1));
+                    System.out.println("Cantidad optima de pedido: " + cantidadesOptimas[mejorOpcion]);
+                    System.out.println("Costo total de inventario: " + minCTU);
+
+                    
+
+
                 }
                     break;
                 default:
