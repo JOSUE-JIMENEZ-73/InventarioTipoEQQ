@@ -67,24 +67,54 @@ public class InventarioTipoEQQ {
                     break;
                 case 2: {
                     System.out.println("Demanda diaria: ");
-                    d= sc.nextFloat();
+                    d = sc.nextFloat();
                     System.out.println("Costo por pedido: ");
-                    k= sc.nextFloat();
-                    System.out.println("porcentaje de costo de almacenamiento: ");
-                    float p= sc.nextFloat();
+                    k = sc.nextFloat();
+                    System.out.println("porcentaje de descuento (%): ");
+                    float p = sc.nextFloat();
                     System.out.println("Cuantos rangos de precio tiene?");
-                    int rangos= sc.nextInt();
+                    int rangos = sc.nextInt();
 
-                    float[] costosUnitarios= new float[rangos];
-                    float[] costosAlcacenamiento= new float[rangos];
-                    float[] cantidadesOptimas= new float[rangos];
-                    float[] CC= new float[rangos];
-                    float[] CO= new float[rangos];
-                    float[] CM= new float[rangos];
-                    float[] CTU= new float[rangos];
+                    float[] costosUnitarios = new float[rangos];
+                    float[] costosAlcacenamiento = new float[rangos];
+                    float[] cantidadesOptimas = new float[rangos];
+                    float[] CC = new float[rangos];
+                    float[] CO = new float[rangos];
+                    float[] CM = new float[rangos];
+                    float[] CTU = new float[rangos];
 
+                    // Pedir los costos unitarios y calcular los costos de almacenamiento
+                    System.out.println("Ingrese los costos unitarios: ");
 
-                    
+                    for (int i = 0; i < costosUnitarios.length; i++) {
+                        System.out.print("Costo unitario del rango " + (i + 1) + ": ");
+                        costosUnitarios[i] = sc.nextFloat();
+                        costosAlcacenamiento[i] = (p / 100) * costosUnitarios[i];
+                    }
+
+                    // Calcular y*
+                    for (int i = 0; i < cantidadesOptimas.length; i++) {
+                        cantidadesOptimas[i] = (float) Math.sqrt((2 * k * d) / costosAlcacenamiento[i]);
+                    }
+
+                    // Calcular CC, CO, CM, CTU
+                    for (int i = 0; i < CTU.length; i++) {
+                        CC[i] = d * costosUnitarios[i];
+                        CO[i] = k * d / cantidadesOptimas[i];
+                        CM[i] = costosAlcacenamiento[i] * cantidadesOptimas[i] / 2;
+                        CTU[i] = CC[i] + CO[i] + CM[i];
+                    }
+
+                    // Encontrar la mejor opcion
+                    float minCTU = CTU[0];
+                    int mejorOpcion = 0;
+
+                    for (int i = 1; i < CTU.length; i++) {
+                        if (CTU[i] < minCTU) {
+                            minCTU = CTU[i];
+                            mejorOpcion = i;
+                        }
+                    }
 
                 }
                     break;
@@ -93,7 +123,7 @@ public class InventarioTipoEQQ {
                     break;
             }
         } while (opcion != 3);
-       sc.close();
+        sc.close();
 
     }
 }
