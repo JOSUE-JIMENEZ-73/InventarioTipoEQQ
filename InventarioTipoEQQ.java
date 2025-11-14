@@ -116,13 +116,39 @@ public class InventarioTipoEQQ {
                         }
                     }
 
-                    //mostrar resultados
+                    // mostrar resultados
                     System.out.println("La mejor opcion es el rango " + (mejorOpcion + 1));
                     System.out.println("Cantidad optima de pedido: " + cantidadesOptimas[mejorOpcion]);
                     System.out.println("Costo total de inventario: " + minCTU);
 
-                    
+                    // Calcular to, n, le, TCU de la mejor opcion
+                    y = cantidadesOptimas[mejorOpcion];
+                    h = costosAlcacenamiento[mejorOpcion];
 
+                    // tiempo de ciclo entre pedidos
+                    to = y / d;
+                    to = (int) (to * 100.0f) / 100.0f;
+                    System.out.println("Tiempo entre pedido: " + to);
+
+                    // numero de ciclos de pedido
+                    System.out.println("Tiempo de entrega en dias: ");
+                    L = sc.nextInt();
+                    n = L / to;
+                    int n_truncado = (int) n;
+                    System.out.println("La cantidad de ciclos de pedidos: " + n_truncado);
+
+                    // Punto de reorden
+                    le = (float) L - (n_truncado * to);
+                    le = Math.round(le * 1000.0f) / 1000.0f;
+                    System.out.println("tiempo restante: " + le + " dias");
+
+                    int puntoReorden = (int) (le * d);
+                    System.out.println("Punto de reorden: " + puntoReorden + " unidades");
+
+                    // TCU usando la formula tradicional
+                    TCU = ((h * y / 2) + (k * (d / y)));
+                    TCU = Math.round(TCU * 100.0f) / 100.0f;
+                    System.out.println("Costo total de inventario: " + TCU);
 
                 }
                     break;
